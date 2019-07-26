@@ -149,8 +149,8 @@ def main():
             #  Log Progress
             # --------------
 
-            sys.stdout.write(
-                "[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]"
+            print(
+                "\r[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]"
                 % (epoch, opt.n_epochs, i, len(dataloader), loss_D.item(), loss_G.item())
             )
 
