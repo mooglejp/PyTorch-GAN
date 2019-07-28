@@ -75,8 +75,8 @@ def main():
 
     if opt.epoch != 0:
         # Load pretrained models
-        generator.load_state_dict(torch.load("saved_models/generator_%d.pth"))
-        discriminator.load_state_dict(torch.load("saved_models/discriminator_%d.pth"))
+        generator.load_state_dict(torch.load(f"saved_models/generator_{opt.epoch}.pth"))
+        discriminator.load_state_dict(torch.load(f"saved_models/discriminator_{opt.epoch}.pth"))
 
     # Optimizers
     optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
