@@ -26,6 +26,8 @@ class ImageDataset(Dataset):
         # Transforms for low resolution images and high resolution images
         self.lr_transform = transforms.Compose(
             [
+                transforms.Resize(hr_height, Image.BICUBIC),
+                transforms.CenterCrop(hr_height),
                 transforms.Resize((hr_height // 4, hr_height // 4), Image.BICUBIC),
                 transforms.ToTensor(),
                 transforms.Normalize(mean, std),
@@ -33,6 +35,8 @@ class ImageDataset(Dataset):
         )
         self.hr_transform = transforms.Compose(
             [
+                transforms.Resize(hr_height, Image.BICUBIC),
+                transforms.CenterCrop(hr_height),
                 transforms.Resize((hr_height, hr_height), Image.BICUBIC),
                 transforms.ToTensor(),
                 transforms.Normalize(mean, std),
